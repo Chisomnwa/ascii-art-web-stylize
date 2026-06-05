@@ -2,20 +2,30 @@
 body {
     background-color: #90e0ef;
     margin: 0;
+    text-align: center;
 }
 
 header{
     display: flex;
     align-items: center;
+    justify-content: center;
+    gap: 10px;
 }
 
+header h1 {
+    display: inline;
+    font-size: 60px;
+}
 
-.logo-img {
+header img {
     width: 100px;
     height: 100px;
 }
 
-h1 {
-    display: inline;
-    font-size: 60px;
+.letters {
+    background-color: #FC0405;
+    font-size: 20px;
+    line-height: 45px;
+    color: white;
 }
+
