@@ -29,3 +29,8 @@ header img {
     color: white;
 }
 
+.input-and-nudge-text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
