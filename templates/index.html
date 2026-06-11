@@ -16,18 +16,30 @@
 
     <pre class="letters">A     B     C     D     E     F     G     H     I     J     K     L     M     N     O     P     Q     R     S     T     U     V     W     X     Y     Z</pre>
 
-    <form>
-        <button type="button">Standard</button>
-        <button type="button">Shadow</button>
-        <button type="button">Thinkertoy</button>
-        <br>
-        <div class="input-and-nudge-text">
-            <textarea text rows="15" cols="100"></textarea>
-            <b>TYPE SOMETHING HERE</b>
+    <form action="/" method="POST">
+        <div class="banner-btn">
+            <label>
+                <input type="radio" name="banner" value="standard.txt" checked />
+                STANDARD
+            </label>
+
+            <label>
+                <input type="radio" name="banner" value="shadow.txt"/>
+                SHADOW
+            </label>
+
+            <label>
+                <input type="radio" name="banner" value="thinkertoy.txt"/>
+                THINKERTOY
+            </label>
         </div>
+        <br>
+        <textarea name="user-input" rows="15" cols="100" placeholder="Type something here..."></textarea>
+        <br>
+        <input type="submit" />
     </form>
 
-    <img class="arrow-down-img" src="../static/assets/images/arrow_down.png" alt="An arrow that points down to the output box" >
+    <img class="arrow-down-img" src="../static/assets/images/arrow_down.png" alt="An arrow that points down to the output box" />
     <br>
 
     <pre></pre>

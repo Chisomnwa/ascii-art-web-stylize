@@ -12,7 +12,20 @@ func homePageHandler(writer http.ResponseWriter, request *http.Request) {
 		http.Error(writer, "[HP] 404: File Not Found", http.StatusNotFound)
 		return
 	}
-	http.ServeFile(writer, request, "templates/index.html")
+
+	switch request.Method {
+	case http.MethodGet:
+		http.ServeFile(writer, request, "templates/index.html")
+	case http.MethodPost:
+		// Process form here
+		request.ParseForm()
+
+		fmt.Println("NEW FORM RECEIVED")
+		fmt.Println(request.Form)
+		http.ServeFile(writer, request, "templates/index.html")
+	default:
+		http.Error(writer, "405: Method Not Allowed", http.StatusMethodNotAllowed)
+	}
 }
 
 func main() {
