@@ -14,7 +14,8 @@ func GenerateAsciiArtText(text, bannerType string) (string, error) {
 		log.Println("An Error occurred:", err)
 		return "", err
 	}
-	asciiLines := strings.Split(string(data), "\n")
+	sanitizedData := strings.ReplaceAll(string(data), "\r\n", "\n")
+	asciiLines := strings.Split(sanitizedData, "\n")
 
 	result := ""
 

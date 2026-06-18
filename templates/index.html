@@ -19,22 +19,22 @@
     <form action="/" method="POST">
         <div class="banner-btn">
             <label>
-                <input type="radio" name="banner" value="standard.txt" checked />
+                <input type="radio" name="banner" onchange="this.form.submit()" value="standard.txt" {{ if eq .BannerType  "standard.txt" }} checked {{ end }} />
                 STANDARD
             </label>
 
             <label>
-                <input type="radio" name="banner" value="shadow.txt"/>
+                <input type="radio" name="banner" onchange="this.form.submit()" value="shadow.txt" {{ if eq .BannerType  "shadow.txt" }} checked {{ end }} />
                 SHADOW
             </label>
 
             <label>
-                <input type="radio" name="banner" value="thinkertoy.txt"/>
+                <input type="radio" name="banner" onchange="this.form.submit()" value="thinkertoy.txt" {{ if eq .BannerType  "thinkertoy.txt" }} checked {{ end }}/>
                 THINKERTOY
             </label>
         </div>
         <br>
-        <textarea name="user-input" rows="15" cols="100" placeholder="Type something here..."></textarea>
+        <textarea name="user-input" rows="15" cols="100" placeholder="Type something here...">{{ .UserInput }}</textarea>
         <br>
         <input type="submit" />
     </form>
@@ -42,6 +42,6 @@
     <img class="arrow-down-img" src="../static/assets/images/arrow_down.png" alt="An arrow that points down to the output box" />
     <br>
 
-    <pre>{{ . }}</pre>
+    <pre>{{ .AsciiArtOuput }}</pre>
 </body>
 </html>

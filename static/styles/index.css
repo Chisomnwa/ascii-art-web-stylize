@@ -49,6 +49,12 @@ label:has(input[type="radio"]:checked) {
     background-color: #4a4e69;
 }
 
+input[type="submit"] {
+    width: 150px;
+    padding: 8px;
+    font-size: 20px;
+}
+
 .banner-btn {
     background-color: #003049;
     width: 500px;
@@ -57,3 +63,15 @@ label:has(input[type="radio"]:checked) {
     border-radius: 7px;
 }
 
+.arrow-down-img {
+    height: 20px;
+}
+
+pre {
+    background-color: whitesmoke;
+    /* width: 824px; */
+    /* margin: 0 auto; */
+    padding: 25px;
+    color: #22c55e;
+    font-weight: bold;
+}

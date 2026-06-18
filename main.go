@@ -7,6 +7,12 @@ import (
 	"text/template"
 )
 
+type HomePageData struct {
+	UserInput     string
+	AsciiArtOuput string
+	BannerType    string
+}
+
 func homePageHandler(writer http.ResponseWriter, request *http.Request) {
 	HomePageTemplate, err := template.ParseFiles("templates/index.html")
 	if err != nil {
@@ -23,7 +29,13 @@ func homePageHandler(writer http.ResponseWriter, request *http.Request) {
 
 	switch request.Method {
 	case http.MethodGet:
-		HomePageTemplate.Execute(writer, "")
+		data := HomePageData{
+			UserInput:     "",
+			AsciiArtOuput: "",
+			BannerType: "standard.txt",
+		}
+		HomePageTemplate.Execute(writer, data)
+
 	case http.MethodPost:
 		request.ParseForm()
 
@@ -36,7 +48,13 @@ func homePageHandler(writer http.ResponseWriter, request *http.Request) {
 			return
 		}
 
-		HomePageTemplate.Execute(writer, asciiArtText)
+		data := HomePageData{
+			UserInput:     userInput,
+			AsciiArtOuput: asciiArtText,
+			BannerType: bannerType,
+		}
+
+		HomePageTemplate.Execute(writer, data)
 	default:
 		http.Error(writer, "405: Method Not Allowed", http.StatusMethodNotAllowed)
 	}
