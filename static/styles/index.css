@@ -50,9 +50,18 @@ label:has(input[type="radio"]:checked) {
 }
 
 input[type="submit"] {
-    width: 150px;
-    padding: 8px;
+    margin-top: 10px;
+    width: 200px;
+    padding: 2px;
     font-size: 20px;
+    background-color: #70e000;
+    border-radius: 10px;
+    color: blue;
+}
+
+textarea {
+    padding: 10px;
+    background-color: whitesmoke;
 }
 
 .banner-btn {
@@ -69,8 +78,8 @@ input[type="submit"] {
 
 pre {
     background-color: whitesmoke;
-    /* width: 824px; */
-    /* margin: 0 auto; */
+    /* width: 1000px;
+    margin: 0 auto; */
     padding: 25px;
     color: #22c55e;
     font-weight: bold;
