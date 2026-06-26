@@ -59,6 +59,10 @@ input[type="submit"] {
     color: white;
 }
 
+input[type="submit"]:hover {
+    background-color: #c1121f;
+}
+
 textarea {
     padding: 10px;
     padding-top: 70px;
@@ -80,16 +84,7 @@ textarea {
     height: 20px;
 }
 
-.output-container{
-    background-color: #ebf5ee;
-    width: 1720px;
-    margin: 0 auto;
-    height: 400px;
-    overflow: scroll;
-}
 pre {
     padding: 25px;
-    color: black;
-    font-weight: bold;
-    font-size: small;
+    font-weight: bold
 }

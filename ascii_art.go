@@ -1,10 +1,13 @@
 package main
 
 import (
+	"errors"
 	"log"
 	"os"
 	"strings"
 )
+
+var emojiError = errors.New("Error: Emoji detected in user input")
 
 func GenerateAsciiArtText(text, bannerType string) (string, error) {
 	userText := strings.Split(text, "\n")
@@ -25,6 +28,16 @@ func GenerateAsciiArtText(text, bannerType string) (string, error) {
 				if char >= 32 && char <= 126 {
 					index := (int(char) - 32)
 					result += asciiLines[index*9+i]
+				} else {
+					return ` /\
+ /  \
+ / || \
+ /  ||  \
+ /   ..   \
+ /__________\
+   E R R O R
+
+ NO EMOJI ALLOWED IN THE TEXT AREA`, emojiError
 				}
 			}
 			result += "\n"

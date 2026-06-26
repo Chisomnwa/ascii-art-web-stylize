@@ -8,9 +8,10 @@ import (
 )
 
 type HomePageData struct {
-	UserInput     string
-	AsciiArtOuput string
-	BannerType    string
+	UserInput      string
+	AsciiArtOutput string
+	BannerType     string
+	EmojiError     string
 }
 
 func homePageHandler(writer http.ResponseWriter, request *http.Request) {
@@ -30,9 +31,10 @@ func homePageHandler(writer http.ResponseWriter, request *http.Request) {
 	switch request.Method {
 	case http.MethodGet:
 		data := HomePageData{
-			UserInput:     "",
-			AsciiArtOuput: "",
-			BannerType:    "standard.txt",
+			UserInput:      "",
+			AsciiArtOutput: "",
+			BannerType:     "standard.txt",
+			EmojiError:     "",
 		}
 		HomePageTemplate.Execute(writer, data)
 
@@ -41,17 +43,32 @@ func homePageHandler(writer http.ResponseWriter, request *http.Request) {
 
 		bannerType := request.FormValue("banner")
 		userInput := request.FormValue("user-input")
+		log.Printf("New POST request received: %q\n", request.Form)
 
 		asciiArtText, err := GenerateAsciiArtText(userInput, bannerType)
+		log.Printf("New ASCII ART GENERATED:\n")
+		fmt.Println(asciiArtText)
 		if err != nil {
-			http.Error(writer, "[HP] 500: An error occured with the specified text style", http.StatusInternalServerError)
+			if err == emojiError {
+				data := HomePageData{
+					UserInput:      userInput,
+					AsciiArtOutput: "",
+					BannerType:     bannerType,
+					EmojiError:     asciiArtText,
+				}
+
+				HomePageTemplate.Execute(writer, data)
+				return
+			}
+			http.Error(writer, "[HP] 500: An error occured with the specified display style", http.StatusInternalServerError)
 			return
 		}
 
 		data := HomePageData{
-			UserInput:     userInput,
-			AsciiArtOuput: asciiArtText,
-			BannerType:    bannerType,
+			UserInput:      userInput,
+			AsciiArtOutput: asciiArtText,
+			BannerType:     bannerType,
+			EmojiError:     "",
 		}
 
 		HomePageTemplate.Execute(writer, data)

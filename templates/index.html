@@ -40,8 +40,18 @@
     <img class="arrow-down-img" src="../static/assets/images/arrow_down.png" alt="An arrow that points down to the output box" />
     <br>
 
-    <div class="output-container">
-        <pre>{{ .AsciiArtOuput }}</pre>
-    </div>
+    {{ if .AsciiArtOutput }} 
+
+        <div style="background-color: #ebf5ee; width: 1720px; margin: 0 auto; height: 400px; overflow: scroll;">
+            <pre style="color: black; font-size: small;">{{ .AsciiArtOutput }}</pre>
+        </div>
+
+    {{ else }}
+
+        <div style="background-color: #ebf5ee; width: 1720px; margin: 0 auto; height: 400px; overflow: scroll;">
+            <pre style="color: red; font-size: 25px;">{{ .EmojiError }}</pre>
+        </div>
+
+    {{ end }}
 </body>
 </html>
