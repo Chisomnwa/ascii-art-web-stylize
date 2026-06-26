@@ -11,10 +11,8 @@
 <body>
     <header>
         <img src="../static/assets/images/aag_logo.png" alt="Ascii-Art-Logo" />
-        <h1>ASCII ART GENERATOR</h1>
+        <h1>SCII ART GENERATOR</h1>
     </header>
-
-    <!-- <pre class="letters">A     B     C     D     E     F     G     H     I     J     K     L     M     N     O     P     Q     R     S     T     U     V     W     X     Y     Z</pre> -->
 
     <form action="/" method="POST">
         <div class="banner-btn">
@@ -34,7 +32,7 @@
             </label>
         </div>
         <br>
-        <textarea name="user-input" rows="15" cols="100" placeholder="Type something here...">{{ .UserInput }}</textarea>
+        <textarea name="user-input" rows="7" cols="80" placeholder="Type something here...">{{ .UserInput }}</textarea>
         <br>
         <input type="submit" value="GENERATE ART"/>
     </form>
@@ -42,6 +40,8 @@
     <img class="arrow-down-img" src="../static/assets/images/arrow_down.png" alt="An arrow that points down to the output box" />
     <br>
 
-    <pre>{{ .AsciiArtOuput }}</pre>
+    <div class="output-container">
+        <pre>{{ .AsciiArtOuput }}</pre>
+    </div>
 </body>
 </html>

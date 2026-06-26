@@ -32,7 +32,7 @@ func homePageHandler(writer http.ResponseWriter, request *http.Request) {
 		data := HomePageData{
 			UserInput:     "",
 			AsciiArtOuput: "",
-			BannerType: "standard.txt",
+			BannerType:    "standard.txt",
 		}
 		HomePageTemplate.Execute(writer, data)
 
@@ -51,12 +51,12 @@ func homePageHandler(writer http.ResponseWriter, request *http.Request) {
 		data := HomePageData{
 			UserInput:     userInput,
 			AsciiArtOuput: asciiArtText,
-			BannerType: bannerType,
+			BannerType:    bannerType,
 		}
 
 		HomePageTemplate.Execute(writer, data)
 	default:
-		http.Error(writer, "405: Method Not Allowed", http.StatusMethodNotAllowed)
+		http.Error(writer, "[HP] 405: Method Not Allowed", http.StatusMethodNotAllowed)
 	}
 }
 

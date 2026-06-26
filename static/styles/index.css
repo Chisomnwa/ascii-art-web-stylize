@@ -1,6 +1,5 @@
-/* Selector */
 body {
-    background-color: #90e0ef;
+    background-color: #fca311;
     margin: 0;
     text-align: center;
 }
@@ -9,7 +8,8 @@ header{
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
+    margin: 0 0;
+    padding: 0 0;
 }
 
 header h1 {
@@ -46,7 +46,7 @@ form label {
 }
 
 label:has(input[type="radio"]:checked) {
-    background-color: #4a4e69;
+    background-color: #c1121f;
 }
 
 input[type="submit"] {
@@ -54,14 +54,18 @@ input[type="submit"] {
     width: 200px;
     padding: 2px;
     font-size: 20px;
-    background-color: #70e000;
+    background-color: #000000;
     border-radius: 10px;
-    color: blue;
+    color: white;
 }
 
 textarea {
     padding: 10px;
-    background-color: whitesmoke;
+    padding-top: 70px;
+    background-color: #000000;
+    color: white;
+    font-size: 20px;
+    text-align: center;
 }
 
 .banner-btn {
@@ -76,11 +80,16 @@ textarea {
     height: 20px;
 }
 
+.output-container{
+    background-color: #ebf5ee;
+    width: 1720px;
+    margin: 0 auto;
+    height: 400px;
+    overflow: scroll;
+}
 pre {
-    background-color: whitesmoke;
-    /* width: 1000px;
-    margin: 0 auto; */
     padding: 25px;
-    color: #22c55e;
+    color: black;
     font-weight: bold;
+    font-size: small;
 }
