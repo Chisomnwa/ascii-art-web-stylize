@@ -10,6 +10,7 @@ import (
 var emojiError = errors.New("Error: Emoji detected in user input")
 
 func GenerateAsciiArtText(text, bannerType string) (string, error) {
+	text = strings.ReplaceAll(text, "\r\n", "\n")
 	userText := strings.Split(text, "\n")
 
 	data, err := os.ReadFile("static/assets/banners/" + bannerType)
@@ -29,6 +30,7 @@ func GenerateAsciiArtText(text, bannerType string) (string, error) {
 					index := (int(char) - 32)
 					result += asciiLines[index*9+i]
 				} else {
+					log.Printf("Unwanted Character Detected: %q", char)
 					return ` /\
  /  \
  / || \
