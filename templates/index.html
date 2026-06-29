@@ -9,8 +9,49 @@
 
 </head>
 <body>
-    <img src="../static/assets/images/aag_logo.png" alt="Ascii-Art-Logo" />
-    <h1>Ascii Art Generator</h1>
-    
+    <header>
+        <img src="../static/assets/images/aag_logo.png" alt="Ascii-Art-Logo" />
+        <h1>SCII ART GENERATOR</h1>
+    </header>
+
+    <form action="/" method="POST">
+        <div class="banner-btn">
+            <label>
+                <input type="radio" name="banner" onchange="this.form.submit()" value="standard.txt" {{ if eq .BannerType  "standard.txt" }} checked {{ end }} />
+                STANDARD
+            </label>
+
+            <label>
+                <input type="radio" name="banner" onchange="this.form.submit()" value="shadow.txt" {{ if eq .BannerType  "shadow.txt" }} checked {{ end }} />
+                SHADOW
+            </label>
+
+            <label>
+                <input type="radio" name="banner" onchange="this.form.submit()" value="thinkertoy.txt" {{ if eq .BannerType  "thinkertoy.txt" }} checked {{ end }}/>
+                THINKERTOY
+            </label>
+        </div>
+        <br>
+        <textarea name="user-input" rows="7" cols="80" placeholder="Type something here...">{{ .UserInput }}</textarea>
+        <br>
+        <input type="submit" value="GENERATE ART"/>
+    </form>
+
+    <img class="arrow-down-img" src="../static/assets/images/arrow_down.png" alt="An arrow that points down to the output box" />
+    <br>
+
+    {{ if .AsciiArtOutput }} 
+
+        <div style="background-color: #ebf5ee; width: 1720px; margin: 0 auto; height: 400px; overflow: scroll;">
+            <pre style="color: black; font-size: small;">{{ .AsciiArtOutput }}</pre>
+        </div>
+
+    {{ else }}
+
+        <div style="background-color: #ebf5ee; width: 1720px; margin: 0 auto; height: 400px; overflow: scroll;">
+            <pre style="color: red; font-size: 25px;">{{ .EmojiError }}</pre>
+        </div>
+
+    {{ end }}
 </body>
 </html>

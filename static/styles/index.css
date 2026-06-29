@@ -1,3 +1,89 @@
 body {
-    background-color: #90e0ef;
+    background-color: #fca311;
+    margin: 0;
+    text-align: center;
+}
+
+header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 0;
+    padding: 0 0;
+}
+
+header h1 {
+    display: inline;
+    font-size: 60px;
+}
+
+header img {
+    width: 100px;
+    height: 100px;
+}
+
+.letters {
+    background-color: #FC0405;
+    font-size: 20px;
+    line-height: 45px;
+    color: white;
+}
+
+form input[type="radio"] {
+    visibility: hidden;
+}
+
+form label {
+    border: 2px solid red;
+    border-radius: 7px;
+    padding-right: 21px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    margin-right: 10px;
+    margin-left: 10px;
+    color: white;
+    width: 150px;
+}
+
+label:has(input[type="radio"]:checked) {
+    background-color: #c1121f;
+}
+
+input[type="submit"] {
+    margin-top: 10px;
+    width: 200px;
+    padding: 2px;
+    font-size: 20px;
+    background-color: #000000;
+    border-radius: 10px;
+    color: white;
+}
+
+input[type="submit"]:hover {
+    background-color: #c1121f;
+}
+
+textarea {
+    padding: 40px;
+    background-color: #000000;
+    color: white;
+    font-size: 20px;
+    text-align: center;
+}
+
+.banner-btn {
+    background-color: #003049;
+    width: 500px;
+    margin: 0 auto;
+    padding: 10px 0;
+    border-radius: 7px;
+}
+
+.arrow-down-img {
+    height: 20px;
+}
+
+pre {
+    padding: 25px;
+    font-weight: bold
 }
