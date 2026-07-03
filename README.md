@@ -17,8 +17,8 @@ This project extends the original [ascii-art](https://github.com/01-edu/public) 
 ## Authors
 
 - **Chisom Nnamani** (@cnnamani)
-- **Samuel Momoh** (@sakeju)
-- **Stephen Chima** (@schima)
+- **Samuel Momoh** (@GRITTY)
+- **Stephen Chima** (@teeschima)
 
 ---
 
